@@ -1,0 +1,106 @@
+{
+  "0": {
+    "label": "Wait Time / Ordering",
+    "top_words": [
+      "like",
+      "place",
+      "just",
+      "time",
+      "don",
+      "really",
+      "ve",
+      "good"
+    ]
+  },
+  "1": {
+    "label": "Food & Dining",
+    "top_words": [
+      "came",
+      "ordered",
+      "didn",
+      "got",
+      "table",
+      "went",
+      "time",
+      "did"
+    ]
+  },
+  "2": {
+    "label": "Ambience / Location",
+    "top_words": [
+      "great",
+      "place",
+      "bar",
+      "good",
+      "night",
+      "nice",
+      "happy",
+      "beer"
+    ]
+  },
+  "3": {
+    "label": "Ambience / Location",
+    "top_words": [
+      "room",
+      "dog",
+      "phoenix",
+      "hotel",
+      "park",
+      "beautiful",
+      "area",
+      "great"
+    ]
+  },
+  "4": {
+    "label": "Automotive / Professional Services",
+    "top_words": [
+      "job",
+      "car",
+      "says",
+      "visiting",
+      "work",
+      "told",
+      "flat",
+      "pay"
+    ]
+  },
+  "5": {
+    "label": "Food & Dining",
+    "top_words": [
+      "pizza",
+      "cheese",
+      "burger",
+      "fries",
+      "good",
+      "sandwich",
+      "breakfast",
+      "bread"
+    ]
+  },
+  "6": {
+    "label": "Food & Dining",
+    "top_words": [
+      "cream",
+      "ice",
+      "chocolate",
+      "love",
+      "foods",
+      "market",
+      "cake",
+      "flavors"
+    ]
+  },
+  "7": {
+    "label": "Food & Dining",
+    "top_words": [
+      "food",
+      "good",
+      "place",
+      "great",
+      "chicken",
+      "like",
+      "restaurant",
+      "service"
+    ]
+  }
+}

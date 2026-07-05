@@ -1,6 +1,6 @@
 """
-GenReview AI — NLP Engine (Section 10.3.1 of the Graphura PRD)
-================================================================
+GenReview AI — NLP Engine 
+
 Converts unstructured customer review text into structured business
 intelligence:
 
@@ -14,10 +14,7 @@ intelligence:
     7. Automatic topic discovery    (LDA)
     8. Language detection           (multilingual support)
 
-Input : yelp.csv  (business_id, date, review_id, stars, text, ...)
-Output: reviews_nlp_enriched.csv + charts/ + topic_model summary
 
-Run:  python3 nlp_engine.py
 """
 
 import re
@@ -65,8 +62,7 @@ sia.lexicon.update({
 
 
 # 1. LEXICONS  (rule-based layer — fast, transparent, no external API
-#    calls needed; this is the "small/fast tier" approach the PRD
-#    recommends in Section 8 applied to analysis rather than drafting)
+
 
 
 ASPECT_KEYWORDS = {
@@ -245,9 +241,9 @@ def detect_emotion(text, sentiment_label):
     return top_emotion
 
 
-# ----------------------------------------------------------------------
+
 # 6. COMPLAINT CATEGORIZATION
-# ----------------------------------------------------------------------
+
 
 def categorize_complaint(text, sentiment_label):
     if sentiment_label != "Negative":
@@ -259,9 +255,8 @@ def categorize_complaint(text, sentiment_label):
     return best_cat if best_score > 0 else "General Dissatisfaction"
 
 
-# ----------------------------------------------------------------------
 # 7. INTENT RECOGNITION
-# ----------------------------------------------------------------------
+
 
 def _is_genuine_question(sentence):
     s = sentence.strip().lower()
@@ -293,9 +288,7 @@ def recognize_intent(text, sentiment_label):
     return "Appreciation"
 
 
-# ----------------------------------------------------------------------
 # 8. KEYWORD / PHRASE EXTRACTION  (lightweight RAKE-style extraction)
-# ----------------------------------------------------------------------
 
 def extract_keyphrases(text, top_n=5):
     text_clean = re.sub(r"[^a-zA-Z\s]", " ", text.lower())
@@ -316,9 +309,8 @@ def extract_keyphrases(text, top_n=5):
     return [p for p, _ in scored[:top_n] if p]
 
 
-# ----------------------------------------------------------------------
 # 9. AUTOMATIC TOPIC DISCOVERY  (corpus-level LDA)
-# ----------------------------------------------------------------------
+
 
 def run_topic_model(texts, n_topics=8, n_top_words=8):
     vectorizer = CountVectorizer(max_df=0.90, min_df=10, stop_words="english",
@@ -367,9 +359,8 @@ def label_topic(words):
     return best_label
 
 
-# ----------------------------------------------------------------------
 # MAIN PIPELINE
-# ----------------------------------------------------------------------
+
 
 def run_pipeline(input_csv, output_csv, sample_size=None):
     df = pd.read_csv(input_csv)

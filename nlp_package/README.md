@@ -1,243 +1,247 @@
-# 🍽️ GenReview AI
+🍽️ GenAI Restaurant Review
 
-> AI-powered Restaurant Review Intelligence Platform that transforms raw customer reviews into actionable business insights using Natural Language Processing (NLP) and an interactive analytics dashboard.
+An AI-powered restaurant review intelligence platform that transforms customer feedback into actionable insights using Natural Language Processing (NLP), Machine Learning (ML), and Generative AI.
 
-# Overview
+📌 Overview
 
-GenReview AI is an end-to-end Restaurant Review Intelligence platform designed to analyze thousands of customer reviews and generate meaningful business insights.
+GenAI Restaurant Review is designed to help restaurants understand customer experiences beyond star ratings. The platform analyzes reviews, identifies complaint categories, detects emotions, performs sentiment analysis, generates summaries, and provides business intelligence through AI-driven analytics.
 
-The system combines a powerful NLP engine with a modern React dashboard to help restaurants understand customer sentiment, identify recurring issues, discover trending topics, and monitor customer satisfaction.
+The project combines:
 
----
+Natural Language Processing (NLP)
+Machine Learning (ML)
+Deep Learning (DL)
+Generative AI (GenAI)
+Data Analytics
+to extract meaningful insights from restaurant reviews collected from platforms such as Yelp, Google Reviews, and other public review sources.
 
-#  Key Features
+⸻
 
-## NLP Engine
+🎯 Problem Statement
 
-- Overall Sentiment Analysis
-- Aspect-Based Sentiment Analysis
-- Emotion Detection
-- Intent Recognition
-- Complaint Categorization
-- Keyword & Keyphrase Extraction
-- Automatic Topic Discovery
-- Language Detection
-- Review Enrichment Pipeline
+Restaurant owners receive thousands of reviews but often struggle to identify:
 
----
+Why customers are dissatisfied
+Common complaints
+Service quality issues
+Food quality concerns
+Emerging trends in customer feedback
+GenAI Restaurant Review automates this process and converts unstructured review text into structured business insights.
 
-##  Analytics Dashboard
+⸻
 
-- Interactive Dashboard
-- Restaurant Performance Overview
-- Review Analytics
-- Sentiment Distribution
-- Complaint Monitoring
-- Topic Visualization
-- AI Generated Insights
-- Responsive UI
-- Dark / Light Theme
+🚀 Features
 
----
+Sentiment Analysis
+Classifies reviews into:
 
-#  Project Architecture
+Positive
+Neutral
+Negative
+Example:
 
-```
-GenReviewAI/
-│
-├── genreview-ai/              # React Frontend
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── nlp_package/               # NLP Engine
-│   ├── nlp_engine.py
-│   ├── requirements.txt
-│   ├── reviews_nlp_enriched.csv
-│   └── topic_summary.json
-│
-└── README.md
-```
+"The food was amazing and the staff was friendly."
 
----
+Output:
 
-#  Technology Stack
+{ "sentiment": "Positive", "confidence": 0.96 }
 
-## Frontend
+⸻
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Chart Components
+Emotion Detection
+Identifies customer emotions such as:
 
-## Backend / NLP
+Happy
+Satisfied
+Excited
+Angry
+Frustrated
+Disappointed
+Example:
 
-- Python
-- Pandas
-- NumPy
-- NLTK
-- TextBlob
-- Scikit-learn
-- Gensim
-- Matplotlib
+"The waiting time was ridiculous."
 
----
+Output:
 
-#  Dataset
+{ "emotion": "Frustrated" }
 
-The NLP pipeline has been developed and tested on approximately **10,000 Yelp restaurant reviews**.
+⸻
 
-Each review contains:
+Complaint Classification
+Automatically categorizes customer complaints into:
 
-- Restaurant Name
-- Rating
-- Review Text
-- Review Date
-- Platform
-- Location
+Food Quality
+Service Delay
+Staff Behaviour
+Pricing
+Cleanliness
+Wrong Order
+Ambience
+No Complaint
+Example:
 
----
+"The waiter ignored us for 30 minutes."
 
-#  NLP Capabilities
+Output:
 
-The pipeline performs the following tasks:
+{ "complaint_category": "Service Delay" }
 
-- Overall Sentiment Analysis
-- Aspect-Level Sentiment
-- Emotion Detection
-- Keyword Extraction
-- Complaint Detection
-- Intent Classification
-- Topic Modeling
-- Language Detection
+⸻
 
-The processed dataset contains enriched NLP features that can be directly visualized in the dashboard.
+Aspect-Based Sentiment Analysis (ABSA)
+Analyzes sentiment for specific aspects of a restaurant.
 
----
+Aspects:
 
-#  Dashboard Modules
+Food
+Service
+Ambience
+Pricing
+Cleanliness
+Waiting Time
+Example:
 
-- Dashboard Overview
-- Sentiment Analytics
-- Review Explorer
-- Restaurant Rankings
-- Topic Analysis
-- AI Insights
-- Activity Timeline
-- Quick Actions
+"The food was excellent but the service was very slow."
 
----
+Output:
 
+{ "food": "Positive", "service": "Negative" }
 
-# ▶️ Frontend Setup
+⸻
 
-```bash
-cd genreview-ai
+AI Review Generation
+Customers can provide ratings through a QR-based interface and generate natural language reviews using Generative AI.
 
-npm install
+Input:
 
-npm run dev
-```
+{ "food": 5, "service": 3, "ambience": 4 }
 
-The application will start on:
+Generated Review:
 
-```
-http://localhost:5173
-```
+The food was excellent and the ambience was pleasant. While the service could be improved, the overall experience was enjoyable.
 
----
+⸻
 
-# ▶️ NLP Setup
+Review Summarization
+Summarizes hundreds of reviews into concise business insights.
 
-Navigate to:
+Example:
 
-```bash
-cd nlp_package
-```
+Customers consistently appreciate the food quality and ambience. However, service delays and waiting times are recurring concerns.
 
-Create virtual environment
+⸻
 
-```bash
-python -m venv venv
-```
+Analytics Dashboard
+Provides restaurant owners with:
 
-Activate
+Sentiment Trends
+Emotion Distribution
+Complaint Breakdown
+Rating Analysis
+Review Volume Trends
+Customer Feedback Insights
+⸻
 
-### Windows
+🏗️ System Architecture
 
-```bash
-venv\Scripts\activate
-```
+Data Collection ↓ Data Cleaning ↓ NLP Processing ↓ Sentiment Analysis ↓ Emotion Detection ↓ Complaint Classification ↓ Aspect-Based Sentiment Analysis ↓ Review Summarization ↓ Analytics Dashboard
 
-### Linux / macOS
+⸻
 
-```bash
-source venv/bin/activate
-```
+🧠 Machine Learning Pipeline
 
-Install dependencies
+Complaint Classification
 
-```bash
-pip install -r requirements.txt
-```
+Review Text ↓ Text Preprocessing ↓ TF-IDF Vectorization ↓ XGBoost Classifier ↓ Complaint Category
 
-Run
+Models Used
 
-```bash
-python nlp_engine.py
-```
+Task Model Sentiment Analysis RoBERTa Emotion Detection DistilRoBERTa Complaint Classification TF-IDF + XGBoost Topic Modeling BERTopic Embeddings Sentence-BERT Review Generation Gemini / LLM Summarization Gemini / LLM
 
----
+⸻
 
-# Output Files
+🛠️ Tech Stack
 
-The pipeline generates:
+Frontend
 
-| File | Description |
-|------|-------------|
-| reviews_nlp_enriched.csv | Review dataset with NLP features |
-| topic_summary.json | Extracted topics |
-| Charts | Sentiment, Emotion, Topic & Complaint Visualizations |
+Next.js
+React
+Tailwind CSS
+ShadCN UI
+Backend
 
----
+FastAPI
+Supabase
+Database
 
-#  Sample NLP Outputs
+PostgreSQL (Supabase)
+Machine Learning
 
-- Positive / Neutral / Negative Sentiment
-- Aspect Scores
-- Emotion Labels
-- Complaint Categories
-- User Intent
-- Topic Clusters
-- Keywords
-- Language Labels
+Scikit-Learn
+XGBoost
+Transformers
+Sentence Transformers
+NLP
 
----
+NLTK
+spaCy
+Hugging Face Transformers
+Deployment
 
-#  Project Preview
+Vercel
+Supabase
+Docker
+⸻
 
-You can add screenshots here.
+📂 Project Structure
 
-```
-screenshots/
-    dashboard.png
-    analytics.png
-    sentiment.png
-```
+GenAI-Restaurant-Review/ │ ├── data/ │ ├── raw/ │ ├── processed/ │ ├── notebooks/ │ ├── models/ │ ├── sentiment/ │ ├── complaint_classifier/ │ ├── emotion_detection/ │ ├── backend/ │ ├── api/ │ ├── services/ │ ├── frontend/ │ ├── dashboard/ │ ├── docs/ │ ├── requirements.txt │ └── README.md
 
----
+⸻
 
-#  Future Improvements
+📊 Dataset
 
-- LLM-based Review Summarization
-- Recommendation Engine
-- Real-time Review Streaming
-- Multi-language Translation
-- Restaurant Comparison
-- Admin Panel
-- User Authentication
-- Cloud Deployment
-- API Integration
+Primary Sources:
 
----
+Yelp Open Dataset
+Google Reviews
+Public Restaurant Review Datasets
+Required Fields:
+
+restaurant_name review_text rating date location platform
+
+⸻
+
+🔮 Future Enhancements
+
+Multilingual Review Analysis
+Voice-to-Review Generation
+Real-Time Customer Feedback Monitoring
+Recommendation Engine
+Review Authenticity Detection
+Complaint Severity Prediction
+Restaurant Benchmarking System
+⸻
+
+👨‍💻 Team Vision
+
+GenAI Restaurant Review aims to bridge the gap between customer feedback and restaurant decision-making by leveraging the power of Artificial Intelligence, Natural Language Processing, and Generative AI to transform reviews into actionable business intelligence.
+
+⸻
+
+⭐ Project Status
+
+Current Phase: Research & Development (R&D)
+
+Project Planning
+Data Collection
+Data Cleaning
+Sentiment Analysis
+Complaint Classification
+Emotion Detection
+Review Generation
+Dashboard Development
+Deployment
+⸻
+
+Built with AI, NLP, ML, and GenAI to revolutionize restaurant feedback analysis. 🚀🍽️

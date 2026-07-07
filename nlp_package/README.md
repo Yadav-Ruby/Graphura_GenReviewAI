@@ -1,115 +1,244 @@
-# GenReview AI — NLP Engine
+# 🍽️ GenReview AI
 
-Implements PRD Section 10.3.1 (Natural Language Processing Engine): overall
-sentiment, aspect-based sentiment, emotion detection, keyword/phrase
-extraction, complaint categorization, intent recognition, automatic topic
-discovery, and language detection — built and validated on the 10,000-review
-Yelp dataset.
+> AI-powered Restaurant Review Intelligence Platform that transforms raw customer reviews into actionable business insights using Natural Language Processing (NLP) and an interactive analytics dashboard.
 
-## Files in this folder
+# Overview
 
-| File | What it is |
-|---|---|
-| `nlp_engine.py` | The pipeline as a plain Python script (run from terminal or VS Code) |
-| `NLP_Engine_Notebook.ipynb` | The same pipeline as a Jupyter notebook, with markdown explanations and inline charts |
-| `nlp_engine_notebook.py` | Source for the notebook (jupytext "percent" format — editable as plain text, regenerate the `.ipynb` from it if you prefer) |
-| `yelp.csv` | Input dataset — put your copy here (see below) |
-| `reviews_nlp_enriched.csv` | Output: original data + 17 new NLP columns |
-| `topic_summary.json` | Output: discovered topics and their top keywords |
-| `charts/` | Output: PNG charts (sentiment, aspects, emotions, intent, complaints, topics) |
-| `GenReviewAI_NLP_Engine_Report.docx` | Full write-up: methodology, validation metrics, worked example, limitations |
-| `requirements.txt` | Python package list |
+GenReview AI is an end-to-end Restaurant Review Intelligence platform designed to analyze thousands of customer reviews and generate meaningful business insights.
+
+The system combines a powerful NLP engine with a modern React dashboard to help restaurants understand customer sentiment, identify recurring issues, discover trending topics, and monitor customer satisfaction.
 
 ---
 
-## Option A — Run in VS Code (plain Python script)
+#  Key Features
 
-1. **Install VS Code** (if you don't have it): https://code.visualstudio.com
-2. **Install the Python extension** — open VS Code → Extensions (`Ctrl+Shift+X` /
-   `Cmd+Shift+X`) → search "Python" (by Microsoft) → Install.
-3. **Open this folder in VS Code**: `File → Open Folder…` → select this project folder.
-4. **Create a virtual environment** (recommended) — open a terminal in VS Code
-   (`` Ctrl+` ``) and run:
-   ```bash
-   python3 -m venv venv
-   # Windows:
-   venv\Scripts\activate
-   # macOS/Linux:
-   source venv/bin/activate
-   ```
-5. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-6. **Place `yelp.csv`** in this same folder (or edit the `input_csv` path in
-   `nlp_engine.py`'s last few lines to point wherever it is).
-7. **Run it**:
-   ```bash
-   python3 nlp_engine.py
-   ```
-   Or click the ▶ "Run" button in the top-right of VS Code with
-   `nlp_engine.py` open — VS Code will use the Python interpreter from your
-   venv (pick it via `Ctrl+Shift+P` → "Python: Select Interpreter" if it
-   doesn't auto-detect).
-8. Output files (`reviews_nlp_enriched.csv`, `topic_summary.json`) appear in
-   the same folder.
+## NLP Engine
+
+- Overall Sentiment Analysis
+- Aspect-Based Sentiment Analysis
+- Emotion Detection
+- Intent Recognition
+- Complaint Categorization
+- Keyword & Keyphrase Extraction
+- Automatic Topic Discovery
+- Language Detection
+- Review Enrichment Pipeline
 
 ---
 
-## Option B — Run as a Jupyter Notebook
+##  Analytics Dashboard
 
-### In VS Code
-1. Do steps 1–5 above (Python extension + venv + `pip install -r requirements.txt`).
-2. Also install the **Jupyter extension** in VS Code (Extensions → search
-   "Jupyter" by Microsoft → Install).
-3. Open `NLP_Engine_Notebook.ipynb` directly in VS Code — it opens as a
-   notebook automatically.
-4. Pick the kernel: top-right of the notebook → "Select Kernel" → choose your
-   `venv` Python interpreter.
-5. Run cells top to bottom (`Shift+Enter` on each, or "Run All" from the
-   toolbar).
-
-### In classic Jupyter / JupyterLab
-1. Install Jupyter if you don't have it:
-   ```bash
-   pip install jupyter
-   ```
-2. From this folder, launch it:
-   ```bash
-   jupyter notebook
-   # or: jupyter lab
-   ```
-3. In the browser tab that opens, click `NLP_Engine_Notebook.ipynb`.
-4. Run cells top to bottom (`Shift+Enter`).
-
-### Notes for the notebook
-- Cell "11. Run the full pipeline" has an `INPUT_CSV = "yelp.csv"` line —
-  point this at your file if it's not in the same folder.
-- There's also a `SAMPLE_SIZE = None` line — set it to a small number (e.g.
-  `300`) the first time you run it, just to confirm everything works before
-  processing the full 10,000 rows (which takes a few minutes on a laptop,
-  mostly in the topic-modeling and per-sentence sentiment steps).
-- Charts render inline in the notebook automatically (`plt.show()`); no
-  separate PNG files needed unless you want them.
+- Interactive Dashboard
+- Restaurant Performance Overview
+- Review Analytics
+- Sentiment Distribution
+- Complaint Monitoring
+- Topic Visualization
+- AI Generated Insights
+- Responsive UI
+- Dark / Light Theme
 
 ---
 
-## Regenerating the Word report
+#  Project Architecture
 
-The `.docx` report was built with a small Node.js script (`build_report.js`,
-not included by default to keep this zip lean — ask if you'd like it) using
-the `docx` npm package. The report itself is a static deliverable; you don't
-need Node.js just to read it.
+```
+GenReviewAI/
+│
+├── genreview-ai/              # React Frontend
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── nlp_package/               # NLP Engine
+│   ├── nlp_engine.py
+│   ├── NLP_Engine_Notebook.ipynb
+│   ├── requirements.txt
+│   ├── reviews_nlp_enriched.csv
+│   └── topic_summary.json
+│
+└── README.md
+```
 
 ---
 
-## Known limitations (also covered in the report)
+#  Technology Stack
 
-- Lexicon-based sentiment slightly undershoots on negative reviews (~41%
-  recall) since polite negativity is hard for keyword-based models to catch.
-- Emotion detection scores the whole review's keywords rather than isolating
-  the dominant clause, so a review that's mostly negative but contains one
-  strongly positive word can be mislabeled.
-- Aspect/complaint keyword lists are tuned for food & hospitality reviews;
-  other business verticals (tyre shops, salons, etc.) would need their own
-  keyword sets added to `ASPECT_KEYWORDS` / `COMPLAINT_CATEGORY_KEYWORDS`.
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Chart Components
+
+## Backend / NLP
+
+- Python
+- Pandas
+- NumPy
+- NLTK
+- TextBlob
+- Scikit-learn
+- Gensim
+- Matplotlib
+
+---
+
+#  Dataset
+
+The NLP pipeline has been developed and tested on approximately **10,000 Yelp restaurant reviews**.
+
+Each review contains:
+
+- Restaurant Name
+- Rating
+- Review Text
+- Review Date
+- Platform
+- Location
+
+---
+
+#  NLP Capabilities
+
+The pipeline performs the following tasks:
+
+- Overall Sentiment Analysis
+- Aspect-Level Sentiment
+- Emotion Detection
+- Keyword Extraction
+- Complaint Detection
+- Intent Classification
+- Topic Modeling
+- Language Detection
+
+The processed dataset contains enriched NLP features that can be directly visualized in the dashboard.
+
+---
+
+#  Dashboard Modules
+
+- Dashboard Overview
+- Sentiment Analytics
+- Review Explorer
+- Restaurant Rankings
+- Topic Analysis
+- AI Insights
+- Activity Timeline
+- Quick Actions
+
+---
+
+
+# ▶️ Frontend Setup
+
+```bash
+cd genreview-ai
+
+npm install
+
+npm run dev
+```
+
+The application will start on:
+
+```
+http://localhost:5173
+```
+
+---
+
+# ▶️ NLP Setup
+
+Navigate to:
+
+```bash
+cd nlp_package
+```
+
+Create virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run
+
+```bash
+python nlp_engine.py
+```
+
+---
+
+# Output Files
+
+The pipeline generates:
+
+| File | Description |
+|------|-------------|
+| reviews_nlp_enriched.csv | Review dataset with NLP features |
+| topic_summary.json | Extracted topics |
+| Charts | Sentiment, Emotion, Topic & Complaint Visualizations |
+
+---
+
+#  Sample NLP Outputs
+
+- Positive / Neutral / Negative Sentiment
+- Aspect Scores
+- Emotion Labels
+- Complaint Categories
+- User Intent
+- Topic Clusters
+- Keywords
+- Language Labels
+
+---
+
+#  Project Preview
+
+You can add screenshots here.
+
+```
+screenshots/
+    dashboard.png
+    analytics.png
+    sentiment.png
+```
+
+---
+
+#  Future Improvements
+
+- LLM-based Review Summarization
+- Recommendation Engine
+- Real-time Review Streaming
+- Multi-language Translation
+- Restaurant Comparison
+- Admin Panel
+- User Authentication
+- Cloud Deployment
+- API Integration
+
+---

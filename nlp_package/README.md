@@ -52,7 +52,6 @@ GenReviewAI/
 │
 ├── nlp_package/               # NLP Engine
 │   ├── nlp_engine.py
-│   ├── NLP_Engine_Notebook.ipynb
 │   ├── requirements.txt
 │   ├── reviews_nlp_enriched.csv
 │   └── topic_summary.json
